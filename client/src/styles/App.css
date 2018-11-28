@@ -1,0 +1,16 @@
+.withBorder {
+  border: 1px solid black;
+}
+
+.withPadding {
+  padding: 10px;
+}
+
+.withRoundedBlueBorder {
+  border: 1px solid navy;
+  border-radius: 5px;
+}
+
+.withBottomGutter {
+  margin-bottom: 5px;
+}
