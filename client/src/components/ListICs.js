@@ -53,8 +53,8 @@ class ListICs extends Component {
   }
 }
 
-function mapStateToProps({ bootcamp }) {
-  return { bootcamp };
+function mapStateToProps({ candidates }) {
+  return { candidates };
 }
 
 export default connect(mapStateToProps)(ListICs);

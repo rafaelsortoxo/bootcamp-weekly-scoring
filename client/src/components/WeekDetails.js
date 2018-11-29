@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import WeekDetailsEditor from './WeekDetailsEditor';
-import WeekDetailsViewer from './WeekDetailsViewer';
+import WeekDetailsViewerEditor from './WeekDetailsViewerEditor';
 
 class WeekDetails extends Component {
   state = {
@@ -16,19 +15,13 @@ class WeekDetails extends Component {
 
   render() {
     if (this.props.currentCandidate) {
-      return this.state.mode === 'view' ? (
-        <WeekDetailsViewer
+      return (
+        <WeekDetailsViewerEditor
           candidate={this.props.currentCandidate}
           className={this.props.className}
           changeMode={this.changeMode}
           auth={this.props.auth}
-        />
-      ) : (
-        <WeekDetailsEditor
-          candidate={this.props.currentCandidate}
-          className={this.props.className}
-          changeMode={this.changeMode}
-          auth={this.props.auth}
+          mode={this.state.mode}
         />
       );
     } else {

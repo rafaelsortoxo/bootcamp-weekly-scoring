@@ -49,11 +49,11 @@ class BootcamperProfile extends Component {
                 <h3>Bootcamper Profile</h3>
               </Col>
             </Row>
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Name:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
@@ -65,11 +65,11 @@ class BootcamperProfile extends Component {
               </div>
             </div>
             {/*change to input */}
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Bootcamp Start Date:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
@@ -80,11 +80,11 @@ class BootcamperProfile extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Status:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
@@ -95,11 +95,11 @@ class BootcamperProfile extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Aurea Email:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
@@ -110,11 +110,11 @@ class BootcamperProfile extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Private Email:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
@@ -125,11 +125,11 @@ class BootcamperProfile extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Skype:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
@@ -140,11 +140,11 @@ class BootcamperProfile extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Hiring Manager:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
@@ -155,11 +155,11 @@ class BootcamperProfile extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Current Week:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
@@ -170,11 +170,11 @@ class BootcamperProfile extends Component {
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label forHtml="teamInput" class="col-sm-4 col-form-label">
+            <div className="form-group row">
+              <label htmlFor="teamInput" className="col-sm-4 col-form-label">
                 Current Team:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   className="form-control"
                   type="text"
