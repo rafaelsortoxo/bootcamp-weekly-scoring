@@ -1,105 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col, Row } from 'reactstrap';
+
+import WeekScoresViewer from './WeekScoresViewer';
+import WeekScoresEditor from './WeekScoresEditor';
+import * as actions from '../actions';
 
 class WeekScores extends Component {
-  renderAnalytics() {
-    return (
-      <Row className="text-center">
-        <Col>
-          <img src="https://via.placeholder.com/300x150" alt="Analytics" />
-        </Col>
-      </Row>
-    );
-  }
+  state = {
+    mode: 'view' // view or edit
+  };
 
-  renderDays() {
-    return (
-      <Row>
-        <Col xs="2" />
-        <Col xs="2">
-          <strong>Day 1</strong>
-        </Col>
-        <Col xs="2">
-          <strong>Day 2</strong>
-        </Col>
-        <Col xs="2">
-          <strong>Day 3</strong>
-        </Col>
-        <Col xs="2">
-          <strong>Day 4</strong>
-        </Col>
-        <Col xs="2">
-          <strong>Day 5</strong>
-        </Col>
-      </Row>
-    );
-  }
+  changeWeek = weekNumber => {
+    this.props.changeWeek(weekNumber);
+  };
 
-  renderFtar() {
-    return (
-      <Row>
-        <Col xs="2">
-          <strong>FTAR</strong>
-        </Col>
-        <Col xs="2">100%</Col>
-        <Col xs="2">100%</Col>
-        <Col xs="2">100%</Col>
-        <Col xs="2">100%</Col>
-        <Col xs="2">100%</Col>
-      </Row>
-    );
-  }
-
-  renderProductivity() {
-    return (
-      <Row>
-        <Col xs="2">
-          <strong>Prod</strong>
-        </Col>
-        <Col xs="2">1000</Col>
-        <Col xs="2">600</Col>
-        <Col xs="2">700</Col>
-        <Col xs="2">800</Col>
-        <Col xs="2">1000</Col>
-      </Row>
-    );
-  }
-
-  renderScore() {
-    return (
-      <Row>
-        <Col xs="2">
-          <strong>Score</strong>
-        </Col>
-        <Col xs="2">2</Col>
-        <Col xs="2">3</Col>
-        <Col xs="2">4</Col>
-        <Col xs="2">3</Col>
-        <Col xs="2">2</Col>
-      </Row>
-    );
-  }
-
-  renderTabularData() {
-    return (
-      <div>
-        {this.renderDays()}
-        {this.renderProductivity()}
-        {this.renderFtar()}
-        {this.renderScore()}
-        {this.renderAnalytics()}
-      </div>
-    );
-  }
+  changeMode = newMode => {
+    this.setState({
+      mode: newMode
+    });
+  };
 
   render() {
-    return <div className={this.props.className}>{this.renderTabularData()}</div>;
+    if (this.props.currentCandidate) {
+      return this.state.mode === 'view' ? (
+        <WeekScoresViewer
+          className={this.props.className}
+          candidate={this.props.currentCandidate}
+          changeMode={this.changeMode}
+          changeWeek={this.changeWeek}
+          auth={this.props.auth}
+        />
+      ) : (
+        <WeekScoresEditor
+          className={this.props.className}
+          candidate={this.props.currentCandidate}
+          changeMode={this.changeMode}
+          auth={this.props.auth}
+        />
+      );
+    } else {
+      return <div>Please select a candidate</div>;
+    }
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, currentCandidate }) {
+  return { auth, currentCandidate };
 }
 
-export default connect(mapStateToProps)(WeekScores);
+export default connect(
+  mapStateToProps,
+  actions
+)(WeekScores);

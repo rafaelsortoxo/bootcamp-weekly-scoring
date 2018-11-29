@@ -23,23 +23,37 @@ module.exports = User => {
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          const existingUser = await User.findOne({ googleId: profile.id });
+          let existingUser = await User.findOne({ googleId: profile.id });
+          // googleId already linked
           if (existingUser) {
             return done(null, existingUser);
           }
-
+          // Check for aureaEmail
           if (
             profile.emails.length &&
             profile.emails[0].value.includes('aurea.com')
           ) {
-            const user = await new User({
-              googleId: profile.id,
-              displayName: profile.displayName
-            }).save();
-            done(null, user);
-          } else {
-            done(new Error('Only users from Aurea allowed'), null);
+            // Check for aurea email in DB
+            existingUser = await User.findOne({
+              aureaEmail: profile.emails[0].value
+            });
+            if (existingUser) {
+              // It was not find by googleId so we need to link the googleId
+              existingUser.googleId = profile.id;
+              existingUser
+                .save()
+                .then()
+                .catch(err =>
+                  console.err.bind(
+                    console,
+                    `Error adding googleId to ${existingUser.aureaEmail}`
+                  )
+                );
+              return done(null, user);
+            }
+            return done(new Error('Could not find email in DB'));
           }
+          done(new Error('Only users from Aurea allowed'), null);
         } catch (err) {
           done(err, null);
         }

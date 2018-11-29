@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as reduxForm } from 'redux-form';
 import authReducer from './authReducer';
-import bootcampReducer from './bootcampReducer';
+import candidateReducer from './candidateReducer';
+import candidatesReducer from './candidatesReducer';
 
 export default combineReducers({
   auth: authReducer,
   form: reduxForm,
-  bootcamp: bootcampReducer
+  currentCandidate: candidateReducer,
+  candidates: candidatesReducer
 });

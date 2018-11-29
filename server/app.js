@@ -8,9 +8,6 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const keys = require('./config/keys');
 
-const indexRouter = require('./routes/index');
-const authRouter = require('./routes/auth');
-
 const app = express();
 
 // Connect to mongodb
@@ -22,6 +19,11 @@ mongoose.connect(
 
 // register the schemas
 const User = require('./models/User');
+
+// require the routers
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
+const candidatesRouter = require('./routes/candidates');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,6 +53,7 @@ app.use(passport.session());
 
 // add the route handlers
 app.use('/api/v1', indexRouter);
+app.use('/api/v1/candidates', candidatesRouter);
 app.use('/auth', authRouter);
 
 // redirect requests to react client app

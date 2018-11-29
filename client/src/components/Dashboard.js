@@ -12,7 +12,7 @@ import WeekDetails from './WeekDetails';
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.fetchBootcampersData();
+    this.props.fetchCandidateData();
   }
 
   renderColumns() {

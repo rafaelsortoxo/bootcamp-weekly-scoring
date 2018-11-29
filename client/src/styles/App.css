@@ -14,3 +14,15 @@
 .withBottomGutter {
   margin-bottom: 5px;
 }
+
+.withTopGutter {
+  margin-top: 5px;
+}
+
+.with2xTopGutter {
+  margin-top: 10px;
+}
+
+.withRightGutter {
+  margin-right: 5px;
+}
