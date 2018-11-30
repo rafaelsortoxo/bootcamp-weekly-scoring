@@ -11,8 +11,6 @@ class Landing extends Component {
   }
 
   render() {
-    console.log('Here', this.props.auth);
-
     return (
       <Container style={{ paddingTop: '20px' }}>
         <Card>

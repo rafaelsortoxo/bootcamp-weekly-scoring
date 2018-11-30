@@ -5,7 +5,7 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import thunk from 'redux-thunk';
 
-import App from './App';
+import Landing from './Landing';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -15,7 +15,7 @@ it('renders without crashing', () => {
   const initialState = {};
   const store = mockStore(initialState);
 
-  const wrapper = shallow(<App store={store} />).dive();
+  const wrapper = shallow(<Landing store={store} />).dive();
 
-  expect(wrapper.is('div')).toBe(true);
+  expect(wrapper.is('Container')).toBe(true);
 });

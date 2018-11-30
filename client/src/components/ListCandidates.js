@@ -59,7 +59,8 @@ class ListCandidates extends Component {
         {this.renderCandidates(
           this.props.candidates.candidates.filter(
             candidate =>
-              candidate.role === 'ic' && candidate.displayName.includes(this.state.icFilter)
+              candidate.role === 'ic' &&
+              candidate.displayName.toLowerCase().includes(this.state.icFilter.toLowerCase())
           )
         )}
       </div>,
@@ -77,7 +78,8 @@ class ListCandidates extends Component {
         {this.renderCandidates(
           this.props.candidates.candidates.filter(
             candidate =>
-              candidate.role === 'sem' && candidate.displayName.includes(this.state.semFilter)
+              candidate.role === 'sem' &&
+              candidate.displayName.toLowerCase().includes(this.state.semFilter.toLowerCase())
           )
         )}
       </div>
