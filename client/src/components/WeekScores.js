@@ -23,12 +23,13 @@ class WeekScores extends Component {
     if (this.props.currentCandidate) {
       return (
         <WeekScoresViewerEditor
+          auth={this.props.auth}
           className={this.props.className}
           candidate={this.props.currentCandidate}
           mode={this.state.mode}
           changeMode={this.changeMode}
           changeWeek={this.changeWeek}
-          auth={this.props.auth}
+          saveWeekScores={this.props.saveWeekScores}
         />
       );
     } else {
@@ -37,8 +38,8 @@ class WeekScores extends Component {
   }
 }
 
-function mapStateToProps({ auth, currentCandidate }) {
-  return { auth, currentCandidate };
+function mapStateToProps({ auth, candidates }) {
+  return { auth, currentCandidate: candidates.currentCandidate };
 }
 
 export default connect(

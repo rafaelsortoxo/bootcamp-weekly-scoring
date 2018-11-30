@@ -7,6 +7,7 @@ class Resource extends Component {
   }
 
   render() {
+    // Dynamically select the resource component to load
     const resource = this.upperCaseFirstLetter(this.props.resource);
     const Component = Resources[resource];
     return <Component action={this.props.action} />;

@@ -22,12 +22,12 @@ class Header extends Component {
   renderManagerLinks() {
     return [
       <NavItem key={'addSem'}>
-        <NavLink tag={Link} to={'/dashboard/add/sem'}>
+        <NavLink tag={Link} to={'/dashboard/sem/add'}>
           Add SEM
         </NavLink>
       </NavItem>,
       <NavItem key={'addIc'}>
-        <NavLink tag={Link} to={'/dashboard/add/ic'}>
+        <NavLink tag={Link} to={'/dashboard/ic/add'}>
           Add IC
         </NavLink>
       </NavItem>

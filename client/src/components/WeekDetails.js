@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import * as actions from '../actions';
 import WeekDetailsViewerEditor from './WeekDetailsViewerEditor';
 
 class WeekDetails extends Component {
@@ -13,6 +15,10 @@ class WeekDetails extends Component {
     });
   };
 
+  saveWeekDetails = data => {
+    this.props.saveWeekDetails(data);
+  };
+
   render() {
     if (this.props.currentCandidate) {
       return (
@@ -22,6 +28,7 @@ class WeekDetails extends Component {
           changeMode={this.changeMode}
           auth={this.props.auth}
           mode={this.state.mode}
+          saveWeekDetails={this.saveWeekDetails}
         />
       );
     } else {
@@ -30,8 +37,11 @@ class WeekDetails extends Component {
   }
 }
 
-function mapStateToProps({ auth, currentCandidate }) {
-  return { auth, currentCandidate };
+function mapStateToProps({ auth, candidates }) {
+  return { auth, currentCandidate: candidates.currentCandidate };
 }
 
-export default connect(mapStateToProps)(WeekDetails);
+export default connect(
+  mapStateToProps,
+  actions
+)(WeekDetails);

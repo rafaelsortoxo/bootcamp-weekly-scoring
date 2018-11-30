@@ -7,7 +7,10 @@ const userSchema = new Schema({
     type: Boolean,
     default: true
   },
-  displayName: String,
+  displayName: {
+    type: String,
+    required: true
+  },
   googleId: String,
   tech: String,
   role: {
@@ -55,6 +58,7 @@ const userSchema = new Schema({
     comments: String,
     finalScore: Number
   },
+  bootcampStartDate: Date,
   bootcampCompleted: {
     type: Boolean,
     default: false
@@ -65,11 +69,19 @@ const userSchema = new Schema({
     type: Number,
     default: 1
   },
+  currentTeam: String,
   notes: String,
   aureaEmail: String,
-  privateEmail: String,
+  privateEmail: {
+    type: String,
+    required: true
+  },
   hiringManager: String,
-  skype: String
+  skype: String,
+  profilePicUrl: {
+    type: String,
+    default: 'https://via.placeholder.com/150x150'
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -20,7 +20,8 @@ class App extends Component {
           <div>
             <Header />
             <Switch>
-              <Route path="/dashboard/:action/:resource" component={Dashboard} />
+              <Route path="/dashboard/:resource/:action/:resourceId" component={Dashboard} />
+              <Route path="/dashboard/:resource/:action" component={Dashboard} />
               <Route path="/dashboard" component={Dashboard} />
               <Route path="/" component={Landing} />
             </Switch>
